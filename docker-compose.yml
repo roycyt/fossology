@@ -12,14 +12,7 @@
 version: '3.5'
 services:
   scheduler:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-      - http_proxy
-      - https_proxy
-      - no_proxy
-    image: fossology
+    image: fossology/fossology
     restart: unless-stopped
     environment:
       - FOSSOLOGY_DB_HOST=db
@@ -32,14 +25,7 @@ services:
     volumes:
       - repository:/srv/fossology/repository/
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-      - http_proxy
-      - https_proxy
-      - no_proxy
-    image: fossology
+    image: fossology/fossology
     restart: unless-stopped
     environment:
       - FOSSOLOGY_DB_HOST=db
